@@ -2,5 +2,6 @@
 
 using BillyTheBot;
 
-var bc = new BillyClient();
-bc.RunAsync();
+var token = File.ReadAllText("config.txt");
+var billy = new BillyClient(token);
+await billy.RunAsync();
