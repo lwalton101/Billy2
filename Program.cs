@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Discord.WebSocket;
+using BillyTheBot;
 
+var bc = new BillyClient();
+bc.RunAsync();
