@@ -18,6 +18,7 @@ Just a silly billy!
 - [ ] dadjoke
 - [ ] 8ball
 - [x] ping
+- [x] reloadconfig
 
 #### Chat
 
