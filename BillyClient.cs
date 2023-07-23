@@ -8,20 +8,15 @@ namespace BillyTheBot;
 
 public class BillyClient
 {
-    private readonly string _token;
     private DiscordClient _client = null!;
-
-    public BillyClient(string token)
-    {
-        _token = token;
-    }
 
     public async Task RunAsync()
     {
-        if (_token == "") throw new TokenNotSetException();
+        Config.InitConfig();
+        if (Config.Token == "") throw new TokenNotSetException();
         _client = new DiscordClient(new DiscordConfiguration
         {
-            Token = _token,
+            Token = Config.Token,
             TokenType = TokenType.Bot,
             Intents = DiscordIntents.All
         });

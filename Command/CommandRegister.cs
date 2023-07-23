@@ -9,4 +9,10 @@ public class CommandRegister : ApplicationCommandModule
     {
         await new PingCommand().HandleCommand(ctx);
     }
+
+    [SlashCommand("lie", "None of this is true")]
+    public async Task LieCommand(InteractionContext ctx)
+    {
+        await new LieCommand().HandleCommand(ctx);
+    }
 }
