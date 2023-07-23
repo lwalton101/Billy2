@@ -15,4 +15,10 @@ public class CommandRegister : ApplicationCommandModule
     {
         await new LieCommand().HandleCommand(ctx);
     }
+
+    [SlashCommand("reloadconfig", "reloads the bots config")]
+    public async Task ReloadConfigCommand(InteractionContext ctx)
+    {
+        await new ReloadConfigCommand().HandleCommand(ctx);
+    }
 }
