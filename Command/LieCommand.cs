@@ -10,8 +10,9 @@ public class LieCommand : DiscordCommand
         Debug.DebugToChannel($"{ctx.User.Username} just ran /lie", DebugLevel.Info);
         var rng = new Random();
         var name = Config.Names.ChooseRandom(rng);
+        var name2 = Config.Names.ChooseRandom(rng);
         var outcome = Config.Events.ChooseRandom(rng);
 
-        await ctx.CreateResponseAsync(outcome.Replace("%name", name));
+        await ctx.CreateResponseAsync(outcome.Replace("%name", name).Replace("%2", name2).Replace("%new", "\n"));
     }
 }
