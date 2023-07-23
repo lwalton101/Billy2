@@ -21,4 +21,10 @@ public class CommandRegister : ApplicationCommandModule
     {
         await new ReloadConfigCommand().HandleCommand(ctx);
     }
+
+    [SlashCommand("eightball", "Tells you your fate")]
+    public async Task EightBallCommand(InteractionContext ctx, [Option("input", "Enter your input")] string input)
+    {
+        await new EightBallCommand().HandleCommand(ctx, input);
+    }
 }
