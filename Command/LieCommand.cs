@@ -12,7 +12,6 @@ public class LieCommand : DiscordCommand
         var name = Config.Names.ChooseRandom(rng);
         var outcome = Config.Events.ChooseRandom(rng);
 
-        //var message = await ctx.FollowUpAsync(new DiscordFollowupMessageBuilder().WithContent(outcome.Replace("%name", name)));
         await ctx.CreateResponseAsync(outcome.Replace("%name", name));
     }
 }
