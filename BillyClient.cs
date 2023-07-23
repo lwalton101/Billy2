@@ -1,6 +1,8 @@
-﻿using BillyTheBot.Exceptions;
+﻿using BillyTheBot.Command;
+using BillyTheBot.Exceptions;
 using DSharpPlus;
 using DSharpPlus.EventArgs;
+using DSharpPlus.SlashCommands;
 
 namespace BillyTheBot;
 
@@ -24,6 +26,9 @@ public class BillyClient
             Intents = DiscordIntents.All
         });
         _client.GuildDownloadCompleted += OnGuildConnect;
+        var slash = _client.UseSlashCommands();
+        slash.RegisterCommands<CommandRegister>(1131949379813638216);
+
         await _client.ConnectAsync();
         await Task.Delay(-1);
     }

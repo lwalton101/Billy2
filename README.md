@@ -17,6 +17,7 @@ Just a silly billy!
 - [ ] meme
 - [ ] dadjoke
 - [ ] 8ball
+- [x] ping
 
 #### Chat
 
