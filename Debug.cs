@@ -42,6 +42,8 @@ public class Debug
                 return DiscordColor.Yellow;
             case DebugLevel.Error:
                 return DiscordColor.DarkRed;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(debugLevel), debugLevel, null);
         }
 
         return DiscordColor.Blurple;
