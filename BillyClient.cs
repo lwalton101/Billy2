@@ -1,13 +1,13 @@
 ﻿using BillyTheBot.Exceptions;
-using Discord;
-using Discord.WebSocket;
+using DSharpPlus;
+using DSharpPlus.EventArgs;
 
 namespace BillyTheBot;
 
 public class BillyClient
 {
     private readonly string _token;
-    private DiscordSocketClient _client = null!;
+    private DiscordClient _client = null!;
 
     public BillyClient(string token)
     {
@@ -17,20 +17,28 @@ public class BillyClient
     public async Task RunAsync()
     {
         if (_token == "") throw new TokenNotSetException();
-
-        _client = new DiscordSocketClient();
-        _client.Log += OnClientLog;
-
-        await _client.LoginAsync(TokenType.Bot, _token);
-        await _client.StartAsync();
-
-
+        _client = new DiscordClient(new DiscordConfiguration
+        {
+            Token = _token,
+            TokenType = TokenType.Bot,
+            Intents = DiscordIntents.All
+        });
+        _client.GuildDownloadCompleted += OnGuildConnect;
+        await _client.ConnectAsync();
         await Task.Delay(-1);
     }
 
-    private Task OnClientLog(LogMessage msg)
+    private Task OnGuildConnect(DiscordClient sender, GuildDownloadCompletedEventArgs args)
     {
-        Console.WriteLine(msg.ToString());
+        Debug.DebugChannel = _client.Guilds[1131949379813638216].Channels[1132604508443258910];
+        Console.WriteLine("Connected to discord in these guilds: ");
+        foreach (var guild in args.Guilds.Values)
+        {
+            Console.WriteLine($"{guild.Name} : {guild.Members.Count} people");
+        }
+
+        Debug.DebugToChannel("Billy is turned on!", DebugLevel.Info);
+
         return Task.CompletedTask;
     }
 }
