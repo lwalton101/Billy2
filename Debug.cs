@@ -16,12 +16,12 @@ public class Debug
         }
     }
 
-    public static void DebugToChannel(string content, DebugLevel level)
+    public static async Task DebugToChannel(string content, DebugLevel level)
     {
-        DebugToChannel(content, level, $"Debug Level {level}");
+        await DebugToChannel(content, level, $"Debug Level {level}");
     }
 
-    public static void DebugToChannel(string content, DebugLevel level, string title)
+    public static async Task DebugToChannel(string content, DebugLevel level, string title)
     {
         var color = DebugLevelToColor(level);
         var message = new DiscordEmbedBuilder()
@@ -29,7 +29,7 @@ public class Debug
             .WithTitle(title)
             .WithDescription(content);
 
-        DebugChannel.SendMessageAsync(message);
+        await DebugChannel.SendMessageAsync(message);
     }
 
     private static DiscordColor DebugLevelToColor(DebugLevel debugLevel)
