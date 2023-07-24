@@ -16,7 +16,7 @@ Just a silly billy!
 - [ ] sendDm
 - [ ] meme
 - [ ] dadjoke
-- [ ] 8ball
+- [x] 8ball
 - [x] ping
 - [x] reloadconfig
 
