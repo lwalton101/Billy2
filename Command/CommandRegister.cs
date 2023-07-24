@@ -1,4 +1,5 @@
-﻿using DSharpPlus.SlashCommands;
+﻿using DSharpPlus.Entities;
+using DSharpPlus.SlashCommands;
 
 namespace BillyTheBot.Command;
 
@@ -26,5 +27,15 @@ public class CommandRegister : ApplicationCommandModule
     public async Task EightBallCommand(InteractionContext ctx, [Option("input", "Enter your input")] string input)
     {
         await new EightBallCommand().HandleCommand(ctx, input);
+    }
+
+    [SlashCommand("sendDM", "Sends a message to the user inputted")]
+    public async Task SendDmCommand(InteractionContext ctx,
+        [Option("User", "The user you want to send a message to")]
+        DiscordUser user,
+        [Option("Message", "The message you want to send")]
+        string message)
+    {
+        await new SendDMComamnd().HandleCommand(ctx, user, message);
     }
 }
