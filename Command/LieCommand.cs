@@ -12,7 +12,7 @@ public class LieCommand : DiscordCommand
         var name = Config.Names.ChooseRandom(rng);
         var name2 = Config.Names.ChooseRandom(rng);
         var outcome = Config.Events.ChooseRandom(rng);
-
-        await ctx.CreateResponseAsync(outcome.Replace("%name", name).Replace("%2", name2).Replace("%new", "\n"));
+        var message = outcome.Replace("%name", name).Replace("%2", name2).Replace("%new", "\n");
+        await ctx.CreateResponseAsync(message);
     }
 }
