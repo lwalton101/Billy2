@@ -2,7 +2,7 @@
 
 public static class Config
 {
-    private const string TokenPath = "config.txt";
+    private const string TokenPath = "token.txt";
     private const string NamesPath = "names.txt";
     private const string EventsPath = "events.txt";
     public static string Token { get; private set; } = "";
