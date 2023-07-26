@@ -12,8 +12,8 @@ Just a silly billy!
 - [ ] walterwhite
 - [ ] dams
 - [ ] unlockprize
-- [ ] lie
-- [ ] sendDm
+- [x] lie
+- [x] sendDm
 - [ ] meme
 - [ ] dadjoke
 - [x] 8ball
