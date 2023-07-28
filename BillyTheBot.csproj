@@ -8,10 +8,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="DSharpPlus" Version="5.0.0-nightly-01663"/>
-        <PackageReference Include="DSharpPlus.SlashCommands" Version="5.0.0-nightly-01663"/>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="RestSharp" Version="110.2.1-alpha.0.10"/>
+        <PackageReference Include="DSharpPlus" Version="5.0.0-nightly-01663" />
+        <PackageReference Include="DSharpPlus.SlashCommands" Version="5.0.0-nightly-01663" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="RestSharp" Version="110.2.1-alpha.0.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="lib\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Nicknotnutils">
+        <HintPath>lib\Nicknotnutils.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>
